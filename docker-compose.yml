@@ -34,13 +34,14 @@ services:
       - MYSQL_USER=${SHINOBI_MYSQL_USER}
       - MYSQL_PASSWORD=${SHINOBI_MYSQL_PASSWORD}
       - MYSQL_HOST=mysql
+      - SUPER_USER_EMAIL=${SUPER_USER_EMAIL}
+      - SUPER_USER_PASSWORD_MD5=${SUPER_USER_PASSWORD_MD5}
     ports:
       - "8080:8080" # Shinobi dashboard
     networks:
       - internal
     volumes:
       - shinobi-videos:/home/Shinobi/videos
-    command: ["node", "camera.js"]
 
   cloudflared-nginx:
     image: cloudflare/cloudflared:latest

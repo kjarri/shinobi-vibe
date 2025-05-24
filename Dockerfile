@@ -11,8 +11,10 @@ RUN git clone --depth 1 https://gitlab.com/Shinobi-Systems/Shinobi.git /home/Shi
 WORKDIR /home/Shinobi
 
 # Copy super.json and conf.json to the Shinobi directory
-COPY super.json /home/Shinobi/super.json
-COPY conf.json /home/Shinobi/conf.json
+COPY conf-template.json /home/Shinobi/conf-template.json
+COPY super-template.json /home/Shinobi/super-template.json
+COPY docker-entrypoint.sh /home/Shinobi/docker-entrypoint.sh
+RUN chmod +x /home/Shinobi/docker-entrypoint.sh
 
 # Install Shinobi dependencies
 RUN npm install --unsafe-perm
@@ -25,3 +27,6 @@ EXPOSE 8080
 
 # Set up config and volumes
 VOLUME ["/config", "/home/Shinobi/videos", "/var/lib/mysql"]
+
+# Set entrypoint
+ENTRYPOINT ["/home/Shinobi/docker-entrypoint.sh"]
