@@ -1,0 +1,9 @@
+node_modules
+*.log
+*.env
+config.json
+super.json
+conf.json
+/home/Shinobi/videos
+/var/lib/mysql
+.DS_Store

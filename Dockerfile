@@ -23,11 +23,18 @@ RUN npm install --unsafe-perm
 # Install pm2 globally
 RUN npm install -g pm2
 
+# Create non-root user and set permissions
+RUN useradd -m shinobiuser && \
+    chown -R shinobiuser:shinobiuser /home/Shinobi
+
 # Expose Shinobi port
 EXPOSE 8080
 
 # Set up config and volumes
 VOLUME ["/config", "/home/Shinobi/videos", "/var/lib/mysql"]
+
+# Switch to non-root user
+USER shinobiuser
 
 # Set entrypoint
 ENTRYPOINT ["/home/Shinobi/docker-entrypoint.sh"]
