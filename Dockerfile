@@ -3,7 +3,7 @@ FROM arm64v8/node:18-bullseye
 
 # Install dependencies
 RUN apt-get update && \
-    apt-get install -y git ffmpeg default-mysql-client build-essential python3 nano vim gettext && \
+    apt-get install -y git ffmpeg default-mysql-client build-essential python3 nano vim gettext netcat && \
     rm -rf /var/lib/apt/lists/*
 
 # Clone Shinobi source
@@ -14,7 +14,8 @@ WORKDIR /home/Shinobi
 COPY conf-template.json /home/Shinobi/conf-template.json
 COPY super-template.json /home/Shinobi/super-template.json
 COPY docker-entrypoint.sh /home/Shinobi/docker-entrypoint.sh
-RUN chmod +x /home/Shinobi/docker-entrypoint.sh
+COPY wait-for-it.sh /home/Shinobi/wait-for-it.sh
+RUN chmod +x /home/Shinobi/docker-entrypoint.sh /home/Shinobi/wait-for-it.sh
 
 # Install Shinobi dependencies
 RUN npm install --unsafe-perm

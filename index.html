@@ -2,36 +2,87 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Cloudflare Tunnel Test Page</title>
+  <title>Cloudflare Tunnel Party 🎈</title>
   <style>
     body {
-      background: #f0f8ff;
-      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #f0f8ff 0%, #ffe4fa 100%);
+      font-family: 'Comic Sans MS', 'Segoe UI', Arial, sans-serif;
       text-align: center;
       padding-top: 60px;
+      animation: confetti 10s linear infinite;
+    }
+    @keyframes confetti {
+      0% { background-position: 0 0; }
+      100% { background-position: 100vw 100vh; }
     }
     h1 {
-      color: #2d8cff;
-      font-size: 2.5em;
+      color: #ff69b4;
+      font-size: 3em;
+      text-shadow: 2px 2px 0 #fff700, 4px 4px 0 #2d8cff;
+      animation: bounce 1.5s infinite alternate;
+    }
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-20px); }
     }
     p {
       color: #333;
-      font-size: 1.2em;
+      font-size: 1.3em;
+      margin-bottom: 30px;
     }
     img {
       margin-top: 30px;
-      width: 300px;
-      border-radius: 20px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      width: 320px;
+      border-radius: 30px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      border: 5px dashed #ff69b4;
+      animation: spin 4s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(-5deg); }
+      100% { transform: rotate(5deg); }
+    }
+    .emoji {
+      font-size: 2.5em;
+      margin: 0 0.2em;
+      display: inline-block;
+      animation: wiggle 1s infinite alternate;
+    }
+    @keyframes wiggle {
+      0% { transform: rotate(-10deg); }
+      100% { transform: rotate(10deg); }
+    }
+    .button {
+      margin-top: 40px;
+      padding: 16px 32px;
+      font-size: 1.2em;
+      background: #fff700;
+      color: #ff69b4;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      transition: background 0.2s, color 0.2s;
+    }
+    .button:hover {
+      background: #ff69b4;
+      color: #fff700;
     }
   </style>
 </head>
 <body>
-  <h1>🎉 Success! Nginx is Serving Your Site 🎉</h1>
+  <h1><span class="emoji">🥳</span> Tunnel Party! <span class="emoji">🦄</span></h1>
   <p>
-    If you see this page, your Cloudflare Tunnel and Nginx setup is working.<br>
-    Now go build something awesome!
+    <span class="emoji">🎉</span> Your Cloudflare Tunnel & Nginx are <b>rocking</b>! <span class="emoji">🎉</span><br>
+    This page is <b>100% certified silly</b>.<br>
+    <span class="emoji">😹</span> <span class="emoji">🍕</span> <span class="emoji">🦖</span> <span class="emoji">🛸</span>
   </p>
   <img src="https://cataas.com/cat/gif" alt="Random Cat GIF">
+  <div>
+    <button class="button" onclick="alert('You win a virtual pizza! 🍕')">Click me for a surprise!</button>
+  </div>
+  <p style="margin-top:40px; font-size:1.1em; color:#888;">
+    <span class="emoji">🤪</span> Go build something <b>ridiculous</b>! <span class="emoji">🤩</span>
+  </p>
 </body>
 </html>

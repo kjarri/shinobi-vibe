@@ -1,6 +1,6 @@
 [
   {
-    "mail:": "${SUPER_USER_EMAIL}",
+    "mail": "${SUPER_USER_EMAIL}",
     "pass": "${SUPER_USER_PASSWORD_MD5}",
     "tokens": []
   }
