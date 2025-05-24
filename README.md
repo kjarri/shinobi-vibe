@@ -35,7 +35,7 @@ TUNNEL_TOKEN_NGINX=your_cloudflare_tunnel_token_nginx_here # (Optional) For a se
 # Shinobi MySQL database configuration
 MYSQL_ROOT_PASSWORD=your_mysql_root_password
 MYSQL_DATABASE=shinobi
-MYSQL_USER=justjoia
+MYSQL_USER=mysql_user
 MYSQL_PASSWORD=your_mysql_password
 
 # Shinobi admin password hash
@@ -113,6 +113,17 @@ docker-compose up -d
 
 ### 8. Video Storage
 All video files will be saved in the `shinobi-videos` directory in your project folder on the Raspberry Pi. You can access them directly from the host.
+
+## Shinobi NVR Information
+Shinobi is a powerful, open-source Network Video Recorder (NVR) designed for video surveillance. It supports a wide range of cameras and offers advanced features for monitoring, recording, and managing video streams.
+
+- **Super User Access**: To access the Shinobi super user interface, navigate to the `/super` path of your Shinobi instance. For example:
+  - Local: [http://localhost:8080/super](http://localhost:8080/super)
+  - Cloudflare Tunnel: `<your-tunnel-url>/super`
+- The super user dashboard allows you to manage users, system settings, and advanced configurations.
+- Use the admin credentials you set in your `.env` file to log in as the super user.
+
+For more details on Shinobi features and documentation, visit the [official Shinobi website](https://shinobi.video/docs/).
 
 ## Security Note
 - **Never share your Tunnel token or commit it to public repositories.**
