@@ -33,10 +33,10 @@ TUNNEL_TOKEN=your_cloudflare_tunnel_token_here         # For the main tunnel (we
 TUNNEL_TOKEN_NGINX=your_cloudflare_tunnel_token_nginx_here # (Optional) For a separate Nginx tunnel
 
 # Shinobi MySQL database configuration
-SHINOBI_MYSQL_ROOT_PASSWORD=your_mysql_root_password
-SHINOBI_MYSQL_DATABASE=shinobi
-SHINOBI_MYSQL_USER=justjoia
-SHINOBI_MYSQL_PASSWORD=your_mysql_password
+MYSQL_ROOT_PASSWORD=your_mysql_root_password
+MYSQL_DATABASE=shinobi
+MYSQL_USER=justjoia
+MYSQL_PASSWORD=your_mysql_password
 
 # Shinobi admin password hash
 ADMIN_PASSWORD_HASH=your_admin_password_hash

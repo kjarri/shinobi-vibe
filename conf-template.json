@@ -2,8 +2,8 @@
   "plug": {},
   "db": {
     "host": "mysql",
-    "user": "${SHINOBI_MYSQL_USER}",
-    "password": "${SHINOBI_MYSQL_PASSWORD}",
+    "user": "${MYSQL_USER}",
+    "password": "${MYSQL_PASSWORD}",
     "database": "shinobi",
     "port": 3306
   },

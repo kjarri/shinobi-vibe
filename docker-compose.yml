@@ -13,10 +13,10 @@ services:
     container_name: shinobi-mysql
     restart: no
     environment:
-      - MYSQL_ROOT_PASSWORD=${SHINOBI_MYSQL_ROOT_PASSWORD}
-      - MYSQL_DATABASE=${SHINOBI_MYSQL_DATABASE}
-      - MYSQL_USER=${SHINOBI_MYSQL_USER}
-      - MYSQL_PASSWORD=${SHINOBI_MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     command: --authentication_policy=mysql_native_password --host_cache_size=0
     volumes:
       - shinobi-database:/var/lib/mysql
@@ -29,10 +29,10 @@ services:
     restart: no
     environment:
       - PLUGIN_KEYS=1
-      - MYSQL_ROOT_PASSWORD=${SHINOBI_MYSQL_ROOT_PASSWORD}
-      - MYSQL_DATABASE=${SHINOBI_MYSQL_DATABASE}
-      - MYSQL_USER=${SHINOBI_MYSQL_USER}
-      - MYSQL_PASSWORD=${SHINOBI_MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - MYSQL_HOST=mysql
       - SUPER_USER_EMAIL=${SUPER_USER_EMAIL}
       - SUPER_USER_PASSWORD_MD5=${SUPER_USER_PASSWORD_MD5}
