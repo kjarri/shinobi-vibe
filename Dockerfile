@@ -1,0 +1,27 @@
+# FROM arm32v7/node:18-bullseye
+FROM arm64v8/node:18-bullseye
+
+# Install dependencies
+RUN apt-get update && \
+    apt-get install -y git ffmpeg default-mysql-client build-essential python3 nano vim gettext && \
+    rm -rf /var/lib/apt/lists/*
+
+# Clone Shinobi source
+RUN git clone --depth 1 https://gitlab.com/Shinobi-Systems/Shinobi.git /home/Shinobi
+WORKDIR /home/Shinobi
+
+# Copy super.json and conf.json to the Shinobi directory
+COPY super.json /home/Shinobi/super.json
+COPY conf.json /home/Shinobi/conf.json
+
+# Install Shinobi dependencies
+RUN npm install --unsafe-perm
+
+# Install pm2 globally
+RUN npm install -g pm2
+
+# Expose Shinobi port
+EXPOSE 8080
+
+# Set up config and volumes
+VOLUME ["/config", "/home/Shinobi/videos", "/var/lib/mysql"]

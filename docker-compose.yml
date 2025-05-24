@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   web:
     image: nginx
@@ -10,14 +8,67 @@ services:
     networks:
       - internal
 
-  cloudflared:
+  mysql:
+    image: mysql:8.0
+    container_name: shinobi-mysql
+    restart: no
+    environment:
+      - MYSQL_ROOT_PASSWORD=${SHINOBI_MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${SHINOBI_MYSQL_DATABASE}
+      - MYSQL_USER=${SHINOBI_MYSQL_USER}
+      - MYSQL_PASSWORD=${SHINOBI_MYSQL_PASSWORD}
+    command: --authentication_policy=mysql_native_password --host_cache_size=0
+    volumes:
+      - shinobi-database:/var/lib/mysql
+    networks:
+      - internal
+
+  shinobi:
+    build: .
+    container_name: shinobi
+    restart: no
+    environment:
+      - PLUGIN_KEYS=1
+      - MYSQL_ROOT_PASSWORD=${SHINOBI_MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${SHINOBI_MYSQL_DATABASE}
+      - MYSQL_USER=${SHINOBI_MYSQL_USER}
+      - MYSQL_PASSWORD=${SHINOBI_MYSQL_PASSWORD}
+      - MYSQL_HOST=mysql
+    ports:
+      - "8080:8080" # Shinobi dashboard
+    networks:
+      - internal
+    volumes:
+      - shinobi-videos:/home/Shinobi/videos
+    command: ["node", "camera.js"]
+
+  cloudflared-nginx:
+    image: cloudflare/cloudflared:latest
+    command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN_NGINX}
+    restart: no
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN_NGINX}
+    networks:
+      - internal
+    depends_on:
+      - web
+  
+  cloudflared-shinobi:
     image: cloudflare/cloudflared:latest
     command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN}
-    restart: unless-stopped
+    restart: no
     environment:
       - TUNNEL_TOKEN=${TUNNEL_TOKEN}
     networks:
       - internal
+    depends_on:
+      - shinobi
+      - mysql
+
+volumes:
+  shinobi-config:
+  shinobi-videos:
+  shinobi-database:
 
 networks:
   internal:
