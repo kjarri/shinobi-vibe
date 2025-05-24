@@ -2,87 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Cloudflare Tunnel Party 🎈</title>
+  <title>The Ministry of Silly Tunnels 🦆</title>
   <style>
     body {
-      background: linear-gradient(135deg, #f0f8ff 0%, #ffe4fa 100%);
+      background: #f7f7fa;
       font-family: 'Comic Sans MS', 'Segoe UI', Arial, sans-serif;
       text-align: center;
       padding-top: 60px;
-      animation: confetti 10s linear infinite;
-    }
-    @keyframes confetti {
-      0% { background-position: 0 0; }
-      100% { background-position: 100vw 100vh; }
     }
     h1 {
-      color: #ff69b4;
-      font-size: 3em;
-      text-shadow: 2px 2px 0 #fff700, 4px 4px 0 #2d8cff;
-      animation: bounce 1.5s infinite alternate;
-    }
-    @keyframes bounce {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-20px); }
-    }
-    p {
-      color: #333;
-      font-size: 1.3em;
-      margin-bottom: 30px;
-    }
-    img {
-      margin-top: 30px;
-      width: 320px;
-      border-radius: 30px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-      border: 5px dashed #ff69b4;
-      animation: spin 4s linear infinite;
-    }
-    @keyframes spin {
-      0% { transform: rotate(-5deg); }
-      100% { transform: rotate(5deg); }
-    }
-    .emoji {
+      color: #2d8cff;
       font-size: 2.5em;
-      margin: 0 0.2em;
-      display: inline-block;
-      animation: wiggle 1s infinite alternate;
+      text-shadow: 1px 1px 0 #fff700, 2px 2px 0 #ff69b4;
+      margin-bottom: 0.5em;
     }
-    @keyframes wiggle {
-      0% { transform: rotate(-10deg); }
-      100% { transform: rotate(10deg); }
-    }
-    .button {
-      margin-top: 40px;
-      padding: 16px 32px;
+    .quote {
+      color: #444;
       font-size: 1.2em;
-      background: #fff700;
-      color: #ff69b4;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-      transition: background 0.2s, color 0.2s;
+      margin: 24px auto 16px auto;
+      max-width: 600px;
+      background: #fffbe7;
+      border-radius: 12px;
+      padding: 14px 18px;
+      border: 1.5px dashed #ff69b4;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      font-style: italic;
     }
-    .button:hover {
-      background: #ff69b4;
-      color: #fff700;
+    .duck {
+      font-size: 2em;
+      display: inline-block;
+      margin: 0 0.1em;
+    }
+    .footer {
+      margin-top: 40px;
+      color: #888;
+      font-size: 1em;
+    }
+    .absurd {
+      font-size: 1.3em;
+      color: #ff69b4;
+      margin: 16px 0;
     }
   </style>
 </head>
 <body>
-  <h1><span class="emoji">🥳</span> Tunnel Party! <span class="emoji">🦄</span></h1>
-  <p>
-    <span class="emoji">🎉</span> Your Cloudflare Tunnel & Nginx are <b>rocking</b>! <span class="emoji">🎉</span><br>
-    This page is <b>100% certified silly</b>.<br>
-    <span class="emoji">😹</span> <span class="emoji">🍕</span> <span class="emoji">🦖</span> <span class="emoji">🛸</span>
-  </p>
-  <img src="https://cataas.com/cat/gif" alt="Random Cat GIF">
-  <div>
-    <button class="button" onclick="alert('You win a virtual pizza! 🍕')">Click me for a surprise!</button>
+  <h1>The Ministry of Silly Tunnels <span class="duck">🦆</span></h1>
+  <div class="quote">
+    "Time is an illusion. Lunchtime doubly so."<br>
+    <span style="font-size:0.8em; color:#888;">— Douglas Adams</span>
   </div>
-  <p style="margin-top:40px; font-size:1.1em; color:#888;">
-    <span class="emoji">🤪</span> Go build something <b>ridiculous</b>! <span class="emoji">🤩</span>
+  <div class="absurd">This page is certified <b>absurd</b> by the Guild of Unlikely Engineers.</div>
+  <p>
+    <span class="duck">🦆</span> Your Cloudflare Tunnel is now <b>officially silly</b>! <span class="duck">🦆</span><br>
+    If you see this, your Nginx is working and the universe is probably safe.<br>
+    <span style="font-size:1.2em;">🍰 🦄 🧀 🐙</span>
   </p>
+  <div class="footer">
+    <span class="duck">🦆</span> "The trouble with having an open mind, of course, is that people will insist on coming
+    along and trying to put things in it."<br>
+    <span style="font-size:0.9em; color:#aaa;">— Terry Pratchett</span>
+  </div>
 </body>
 </html>
