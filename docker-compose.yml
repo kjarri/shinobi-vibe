@@ -41,7 +41,7 @@ services:
     networks:
       - internal
     volumes:
-      - shinobi-videos:/home/Shinobi/videos
+      - ./shinobi-videos:/home/Shinobi/videos
 
   cloudflared-nginx:
     image: cloudflare/cloudflared:latest

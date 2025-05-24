@@ -1,6 +1,6 @@
 # Cloudflare Tunnel + Nginx + Shinobi Docker Compose Example
 
-This project demonstrates how to run two applications using Docker Compose:
+This vibe-coded project demonstrates how to run two applications using Docker Compose:
 
 1. **Web App**: A simple Nginx server that serves a static HTML page. This is used to verify that your Cloudflare Tunnel and local networking are working correctly.
 2. **Shinobi NVR**: A powerful open-source Network Video Recorder (NVR) for video surveillance, running in its own container.
@@ -63,6 +63,56 @@ To stop and remove the containers, run:
 ```sh
   docker-compose down
 ```
+
+## Running on a Fresh Raspberry Pi
+
+Follow these steps to set up and run this project on a new Raspberry Pi (tested on Raspberry Pi OS):
+
+### 1. Update your system
+```sh
+sudo apt update && sudo apt upgrade -y
+```
+
+### 2. Install Docker
+```sh
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+```
+Add your user to the `docker` group (optional, for running Docker without `sudo`):
+```sh
+sudo usermod -aG docker $USER
+# Log out and back in for group changes to take effect
+```
+
+### 3. Install Docker Compose
+```sh
+sudo apt-get install -y libffi-dev libssl-dev python3 python3-pip
+sudo pip3 install docker-compose
+```
+
+### 4. Clone this repository and enter the directory
+```sh
+git clone <your-repo-url>
+cd shinobi-vibe
+```
+
+### 5. Create the `.env` file
+Copy the example from the README and fill in your values:
+```sh
+nano .env
+```
+
+### 6. Start the services
+```sh
+docker-compose up -d
+```
+
+### 7. Access your applications
+- **Web App**: http://localhost:8088 or the Cloudflare Tunnel public URL
+- **Shinobi**: http://localhost:8080 or the Cloudflare Tunnel public URL
+
+### 8. Video Storage
+All video files will be saved in the `shinobi-videos` directory in your project folder on the Raspberry Pi. You can access them directly from the host.
 
 ## Security Note
 - **Never share your Tunnel token or commit it to public repositories.**
