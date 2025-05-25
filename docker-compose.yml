@@ -37,7 +37,7 @@ services:
       - SUPER_USER_EMAIL=${SUPER_USER_EMAIL}
       - SUPER_USER_PASSWORD_MD5=${SUPER_USER_PASSWORD_MD5}
     ports:
-      - "8080:8080" # Shinobi dashboard
+      - "8089:8080" # Shinobi dashboard now on 8089
     networks:
       - internal
     volumes:
